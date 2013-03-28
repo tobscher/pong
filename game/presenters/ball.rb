@@ -32,11 +32,13 @@ module Presenters
       if @ball.minX <= 0
         @velocity.x = @velocity.x * -1
         @game.score(:left)
+        Sound.new(File.expand_path("../../../assets/sounds/plop.ogg", __FILE__)).play
       end
 
       if @ball.maxX >= container.width
         @velocity.x = @velocity.x * -1
         @game.score(:right)
+        Sound.new(File.expand_path("../../../assets/sounds/plop.ogg", __FILE__)).play
       end
 
       @velocity.y = @velocity.y * -1 if @ball.minY <= 0

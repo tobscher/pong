@@ -30,7 +30,10 @@ module Presenters
 
     def detect_collision(container)
       return unless @ball.ball
-      @ball.velocity.x = @ball.velocity.x * -1 if @ball.ball.intersects(@rectangle)
+      if @ball.ball.intersects(@rectangle)
+        Sound.new(File.expand_path("../../../assets/sounds/beeep.ogg", __FILE__)).play
+        @ball.velocity.x = @ball.velocity.x * -1
+      end
     end
   end
 end
