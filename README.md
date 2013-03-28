@@ -2,7 +2,9 @@
 
 ## Description
 
-Pong implemented with JRuby and Slick2D
+Pong implemented with JRuby and Slick2D.
+
+![Demo](https://github.com/tobscher/pong/raw/master/demo.png)
 
 ## Prerequisites
 
