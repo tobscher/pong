@@ -8,8 +8,8 @@ module Presenters
     def initialize
       @game = Entities::Game.new
       @ball = Presenters::Ball.new(@game)
-      @players = { :left => build_player(:left, :cpu),
-                   :right => build_player(:right, :human) }
+      @players = { :left => build_player(:left, :human),
+                   :right => build_player(:right, :cpu) }
     end
 
     def render(container, graphics)
