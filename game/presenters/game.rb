@@ -7,9 +7,9 @@ module Presenters
 
     def initialize
       @game = Entities::Game.new
+      @ball = Presenters::Ball.new(@game)
       @players = { :left => build_player(:left, :cpu),
                    :right => build_player(:right, :human) }
-      @ball = Presenters::Ball.new(@game)
     end
 
     def render(container, graphics)
@@ -31,7 +31,7 @@ module Presenters
 
     private
     def build_player(side, type)
-      PLAYER_MAP[type].new(@game.players[side], side)
+      PLAYER_MAP[type].new(@game.players[side], side, @ball)
     end
   end
 end

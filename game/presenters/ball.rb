@@ -1,5 +1,7 @@
 module Presenters
   class Ball < Base
+    attr_reader :ball, :velocity
+
     def initialize(game)
       @game = game
       @running = false
