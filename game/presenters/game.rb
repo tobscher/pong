@@ -1,10 +1,15 @@
 module Presenters
   class Game < Base
+    PLAYER_MAP = {
+      :cpu => Presenters::Player,
+      :human => Presenters::HumanPlayer
+    }
+
     def initialize
       @game = Entities::Game.new
-      @players = { :left => build_player(:left),
-                   :right => build_player(:right) }
-      @ball = Presenters::Ball.new
+      @players = { :left => build_player(:left, :cpu),
+                   :right => build_player(:right, :human) }
+      @ball = Presenters::Ball.new(@game)
     end
 
     def render(container, graphics)
@@ -18,9 +23,15 @@ module Presenters
       @ball.render(container, graphics)
     end
 
+    def update(container, delta)
+      @players.values.each do |player|
+        player.update(container, delta)
+      end
+    end
+
     private
-    def build_player(side)
-      Presenters::Player.new(@game.players[side], side)
+    def build_player(side, type)
+      PLAYER_MAP[type].new(@game.players[side], side)
     end
   end
 end

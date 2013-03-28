@@ -20,5 +20,7 @@ class Pong < BasicGame
     # Grab input and exit if escape is pressed
     input = container.get_input
     container.exit if input.is_key_down(Input::KEY_ESCAPE)
+
+    @game.update(container, delta)
   end
 end
