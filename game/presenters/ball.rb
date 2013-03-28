@@ -31,13 +31,13 @@ module Presenters
     def detect_collision(container)
       if @ball.minX <= 0
         @velocity.x = @velocity.x * -1
-        @game.score(:left)
+        @game.score(:right)
         Sound.new(File.expand_path("../../../assets/sounds/plop.ogg", __FILE__)).play
       end
 
       if @ball.maxX >= container.width
         @velocity.x = @velocity.x * -1
-        @game.score(:right)
+        @game.score(:left)
         Sound.new(File.expand_path("../../../assets/sounds/plop.ogg", __FILE__)).play
       end
 
