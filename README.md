@@ -12,7 +12,7 @@ Pong implemented with JRuby and Slick2D.
 
 ## Start Pong
 
-Run the following command to start a new game of pong
+Run the following command to start a new game of pong:
 ```
 jruby main.rb
 ```
